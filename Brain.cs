@@ -10,11 +10,13 @@ public partial class Brain : Node2D
 	public override void _Ready()
 	{
 		Random rand = new Random();
+		_networkWeights = new int[_networkWeights.Length][];
 		for (int layer = 0; layer < _networkWeights.Length; layer++)
 		{
+			_networkWeights[layer] = new int[_networkWeights[layer].Length];
 			for (int weight = 0; weight < _networkWeights[layer].Length + BiasOffset; weight++)
 			{
-				weight = rand.Next();
+				_networkWeights[layer][weight] = rand.Next();
 			}
 		}
 	}
